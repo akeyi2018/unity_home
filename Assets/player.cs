@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    public float speed = 5f;   
+    public float speed = 5f;
+    
+    // 玉のプレハブを設定するための変数
+    public GameObject ballPrefab;
+
     void Start()
     {
         
@@ -32,6 +36,12 @@ public class player : MonoBehaviour
             transform.position += Vector3.right * moveDistance;
         }
 
+        // スペースキーで玉を発射するためのコード
+        if (Input.GetKeyDown(KeyCode.Space))
+        {    
+            // プレイヤーの位置に玉を生成
+            Instantiate(ballPrefab, transform.position + Vector3.up, Quaternion.identity);
+        }
         // ゲームを終了するためのコード
         if (Input.GetKey(KeyCode.Escape))
         {
