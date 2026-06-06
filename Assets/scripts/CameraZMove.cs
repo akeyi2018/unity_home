@@ -5,21 +5,18 @@ public class CameraZMove : MonoBehaviour
     [Header("移動速度")]
     public float moveSpeed = 10.0f;
 
+    [Header("キー設定")]
+    public KeyCode forwardKey = KeyCode.Z;
+    public KeyCode backwardKey = KeyCode.X;
+
     void Update()
     {
-        // カメラの向いている方向（Z軸）を取得
         Vector3 direction = transform.forward;
 
-        // Zキーで前進
-        if (Input.GetKey(KeyCode.Z))
-        {
+        if (Input.GetKey(forwardKey))
             transform.position += direction * moveSpeed * Time.deltaTime;
-        }
-        
-        // Xキーで後退
-        if (Input.GetKey(KeyCode.X))
-        {
+
+        if (Input.GetKey(backwardKey))
             transform.position -= direction * moveSpeed * Time.deltaTime;
-        }
     }
 }

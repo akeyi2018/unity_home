@@ -3,7 +3,7 @@ using UnityEngine;
 public class tama : MonoBehaviour
 {
     // 玉の速度を設定するための変数
-    public float speed = 10f;
+    public float speed = 1f;
 
     void Start()
     {
